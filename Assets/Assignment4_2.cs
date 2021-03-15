@@ -39,4 +39,48 @@ public class Assignment4_2 : MonoBehaviour
 
         return Mathf.Sqrt(width * width + height * height);
     }
+
+    // 2번 문제
+    void Solution2() {
+        Debug.Log("2번 문제");
+
+        int[] scores = GenerateRandomArray(20, 50, 101);
+
+        foreach (int score in scores) {
+            string grade = GetGrade(score);
+            Debug.Log(score + " : " + grade);
+        }
+    }
+
+    // 특정 사이즈의 랜덤 배열을 생성, 랜덤 시작값과 끝값을 인자로 받음
+    int[] GenerateRandomArray(int size, int start, int end) {
+        int[] array = new int[size];
+        for(int i = 0; i < size; i++) {
+            array[i] = Random.Range(start, end);
+        }
+
+        return array;
+    }
+
+    // 점수에 따라 학점을 반환
+    string GetGrade(int score) {
+        if (score > 100 && score < 0) {
+            return "ERROR";
+        }
+        else if (score >= 90) {
+            return "A";
+        } 
+        else if (score >= 80) {
+            return "B";
+        } 
+        else if (score >= 70) {
+            return "C";
+        } 
+        else if (score >= 60) {
+            return "D";
+        }
+        else {
+            return "F";
+        }
+    }
 }

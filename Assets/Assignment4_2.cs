@@ -32,9 +32,13 @@ public class Assignment4_2 : MonoBehaviour
 
     }
 
+    // 최초 실행 시 바로 문제를 실행하지 않고 1이나 2의 입력을 기다린 뒤 다음 코드 실행
     IEnumerator Solutions() {
         Debug.Log("1번 혹은 2번을 입력해 주세요.");
         bool done = false;
+
+        // 반복문을 돌면서 Input.GetKeyDown을 통해 원하는 키 입력이 들어올 때까지 다음 프레임(함수)의 실행을 멈춤
+        // yield return null; 시 다음 프레임이 실행되지 않고 반복문 안을 계속적으로 순회함
         while(!done) {
             if (Input.GetKeyDown(numberKeyCodes[1])) {
                 done = true;

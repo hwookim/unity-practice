@@ -15,7 +15,7 @@ public class Assignment5 : MonoBehaviour
     {
         string name = gameObject.name;
         int number = int.Parse(Regex.Replace(name, "[^0-9]", "")) - 1;
-        Debug.Log(name + " jump " + jumperForce[number]);
+        Debug.Log(jumperForce[number] + " force is applied to " + name);
 
         rigidbody.AddForce(0, jumperForce[number], 0);
     }

@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+  학과: 멀티미디어공학과
+  학번: 2016112661
+  이름: 김현우
+  제출일자: 2021.03.29 21:40
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

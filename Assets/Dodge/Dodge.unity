@@ -1166,6 +1166,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1266179311}
     m_Modifications:
+    - target: {fileID: 6387441953464595099, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: spawnRateMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387441953464595099, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: spawnRateMin
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8216547153498279619, guid: 256fca5da410c4874b3036f14a8c78e8,
         type: 3}
       propertyPath: m_RootOrder

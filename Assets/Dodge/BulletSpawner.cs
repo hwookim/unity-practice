@@ -25,7 +25,7 @@ public class BulletSpawner : MonoBehaviour
     {
         timeAfterSpwan += Time.deltaTime;
 
-        if (timeAfterSpwan >- spawnRate) {
+        if (timeAfterSpwan >= spawnRate) {
             timeAfterSpwan = 0f;
 
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);

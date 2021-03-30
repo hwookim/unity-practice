@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameoverText;
     public Text timeText;
     public Text recordText;
+    public Text playerInfoText;
 
     private float surviveTime;
     private bool isGameover;
@@ -16,6 +17,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("ID", 2016112661);
+        PlayerPrefs.SetString("name", "김현우");
+        playerInfoText.text = PlayerPrefs.GetInt("ID") + " " + PlayerPrefs.GetString("name");
+
         surviveTime = 0;
         isGameover = false;
     }

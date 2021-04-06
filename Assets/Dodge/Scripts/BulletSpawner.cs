@@ -48,6 +48,9 @@ public class BulletSpawner : MonoBehaviour
 
             if (playerController != null) {
                 gameObject.SetActive(false);
+
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                gameManager.DestroyBulletSpawner();
             }
         }
     }

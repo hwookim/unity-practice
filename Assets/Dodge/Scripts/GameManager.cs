@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameoverText;
+    public GameObject gameEndText;
     public Text timeText;
     public Text recordText;
     public Text playerInfoText;
 
     private float surviveTime;
-    private bool isGameover;
+    private bool isEnd;
+    private int bulletSpawnerCount;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,14 @@ public class GameManager : MonoBehaviour
         playerInfoText.text = PlayerPrefs.GetInt("ID") + " " + PlayerPrefs.GetString("name");
 
         surviveTime = 0;
-        isGameover = false;
+        bulletSpawnerCount = 4;
+        isEnd = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isGameover) {
+        if (!isEnd) {
             surviveTime += Time.deltaTime;
             timeText.text = "Time: " + (int) surviveTime;
         }
@@ -40,16 +42,26 @@ public class GameManager : MonoBehaviour
     }
 
     public void EndGame() {
-        isGameover = true;
-        gameoverText.SetActive(true);
+        isEnd = true;
+        ShowGameEndText();
+    }
+
+    public void DestroyBulletSpawner() {
+        bulletSpawnerCount--;
+        if (bulletSpawnerCount == 0) {
+            isEnd = true;
+            ShowGameEndText();
+        }
+    }
+
+    void ShowGameEndText() {
+        gameEndText.SetActive(true);
 
         float bestTime = PlayerPrefs.GetFloat("BestTime");
-
-        if (surviveTime > bestTime) {
+        if (surviveTime < bestTime) {
             bestTime = surviveTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
         }
-
         recordText.text = "Best Time: " + (int) bestTime;
     }
 }

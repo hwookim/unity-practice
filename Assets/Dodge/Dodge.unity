@@ -883,6 +883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletSpawner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8216547153498279623, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256fca5da410c4874b3036f14a8c78e8, type: 3}
 --- !u!1 &1266179310
@@ -1004,6 +1009,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletSpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216547153498279623, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256fca5da410c4874b3036f14a8c78e8, type: 3}
@@ -1653,6 +1663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletSpawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8216547153498279623, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256fca5da410c4874b3036f14a8c78e8, type: 3}
 --- !u!1 &2131958129
@@ -1824,6 +1839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216547153498279623, guid: 256fca5da410c4874b3036f14a8c78e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256fca5da410c4874b3036f14a8c78e8, type: 3}

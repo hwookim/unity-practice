@@ -48,20 +48,27 @@ public class GameManager : MonoBehaviour
 
     public void DestroyBulletSpawner() {
         bulletSpawnerCount--;
+
         if (bulletSpawnerCount == 0) {
             isEnd = true;
+            UpdateRecord();
             ShowGameEndText();
         }
+    }
+
+    void UpdateRecord() {
+        float bestTime = PlayerPrefs.GetFloat("BestTime");
+        if (playTime < bestTime) {
+            bestTime = playTime;
+            PlayerPrefs.SetFloat("BestTime", bestTime);
+        }
+        recordText.text = "Best Time: " + (int) bestTime;
     }
 
     void ShowGameEndText() {
         gameEndText.SetActive(true);
 
         float bestTime = PlayerPrefs.GetFloat("BestTime");
-        if (playTime < bestTime) {
-            bestTime = playTime;
-            PlayerPrefs.SetFloat("BestTime", bestTime);
-        }
         recordText.text = "Best Time: " + (int) bestTime;
     }
 }

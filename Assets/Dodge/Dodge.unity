@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24faff19705af4bc8ab137f2d5b2a2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameoverText: {fileID: 886844875}
+  gameEndText: {fileID: 886844875}
   timeText: {fileID: 1893521493}
   recordText: {fileID: 1084476173}
   playerInfoText: {fileID: 1619016267}

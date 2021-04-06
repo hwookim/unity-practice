@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Text recordText;
     public Text playerInfoText;
 
-    private float surviveTime;
+    private float playTime;
     private bool isEnd;
     private int bulletSpawnerCount;
 
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("name", "김현우");
         playerInfoText.text = PlayerPrefs.GetInt("ID") + " " + PlayerPrefs.GetString("name");
 
-        surviveTime = 0;
+        playTime = 0;
         bulletSpawnerCount = 4;
         isEnd = false;
     }
@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!isEnd) {
-            surviveTime += Time.deltaTime;
-            timeText.text = "Time: " + (int) surviveTime;
+            playTime += Time.deltaTime;
+            timeText.text = "Time: " + (int) playTime;
         }
         else {
             if (Input.GetKeyDown(KeyCode.R)) {
@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
         gameEndText.SetActive(true);
 
         float bestTime = PlayerPrefs.GetFloat("BestTime");
-        if (surviveTime < bestTime) {
-            bestTime = surviveTime;
+        if (playTime < bestTime) {
+            bestTime = playTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
         }
         recordText.text = "Best Time: " + (int) bestTime;

@@ -26,7 +26,8 @@ public class Move : MonoBehaviour
         }
         
         if (Input.GetKey(KeyCode.DownArrow)) {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime);
+            transform.position = transform.position - (transform.up * Time.deltaTime);
+            // transform.position = transform.position - (Vector3.up * Time.deltaTime); 전역공간 기준 이동
         }
 
         if (Input.GetKey(KeyCode.LeftArrow)) {

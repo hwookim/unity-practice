@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour {
 
    private void Start() {
        // 초기화
+       playerRigidbody = GetComponent<Rigidbody2D>();
+       animator = GetComponent<Animator>();
+       playerAudio = GetComponent<AudioSource>();
    }
 
    private void Update() {

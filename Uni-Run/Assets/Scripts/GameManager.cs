@@ -37,11 +37,16 @@ public class GameManager : MonoBehaviour {
         if (isGameover && Input.GetMouseButtonDown(0)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        
+        AddScore(1);
     }
 
     // 점수를 증가시키는 메서드
     public void AddScore(int newScore) {
-        
+        if (!isGameover) {
+            score += newScore;
+            scoreText.text = "Score : " + score;
+        }
     }
 
     // 플레이어 캐릭터가 사망시 게임 오버를 실행하는 메서드

@@ -11,7 +11,7 @@ public class Platform : MonoBehaviour {
         stepped = false;
 
         for (int i = 0; i < obstacles.Length; i++) {
-            if (Random.Range(0,3) == 0) { // 3분의 1 확률
+            if (Random.Range(0, 3) == 0) { // 3분의 1 확률
                 obstacles[i].SetActive(true);
             }
             else {
@@ -22,7 +22,7 @@ public class Platform : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         // 플레이어 캐릭터가 자신을 밟았을때 점수를 추가하는 처리
-        if (collision.collider.tag == "Player" && stepped) {
+        if (collision.collider.tag == "Player" && !stepped) {
             stepped = true;
             GameManager.instance.AddScore(1);
         }

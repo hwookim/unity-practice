@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour {
         if (isGameover && Input.GetMouseButtonDown(0)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
-        AddScore(1);
     }
 
     // 점수를 증가시키는 메서드

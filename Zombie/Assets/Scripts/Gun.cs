@@ -60,9 +60,7 @@ public class Gun : MonoBehaviour {
     public void Fire() {
         // 현재 상태가 발사 가능한 상태
         // && 마지막 총 발사 시점에서 timeBetFire 이상의 시간이 지남
-        if (state == State.Ready
-            && Time.time >= lastFireTime + timeBetFire)
-        {
+        if (state == State.Ready && Time.time >= lastFireTime + timeBetFire) {
             // 마지막 총 발사 시점을 갱신
             lastFireTime = Time.time;
             // 실제 발사 처리 실행
@@ -79,17 +77,13 @@ public class Gun : MonoBehaviour {
 
         // 레이캐스트(시작지점, 방향, 충돌 정보 컨테이너, 사정거리)
         if (Physics.Raycast(fireTransform.position,
-            fireTransform.forward, out hit, fireDistance))
-        {
+            fireTransform.forward, out hit, fireDistance)) {
             // 레이가 어떤 물체와 충돌한 경우
-
             // 충돌한 상대방으로부터 IDamageable 오브젝트를 가져오기 시도
-            IDamageable target =
-                hit.collider.GetComponent<IDamageable>();
+            IDamageable target = hit.collider.GetComponent<IDamageable>();
 
             // 상대방으로 부터 IDamageable 오브젝트를 가져오는데 성공했다면
-            if (target != null)
-            {
+            if (target != null) {
                 // 상대방의 OnDamage 함수를 실행시켜서 상대방에게 데미지 주기
                 target.OnDamage(damage, hit.point, hit.normal);
             }
@@ -97,8 +91,7 @@ public class Gun : MonoBehaviour {
             // 레이가 충돌한 위치 저장
             hitPosition = hit.point;
         }
-        else
-        {
+        else {
             // 레이가 다른 물체와 충돌하지 않았다면
             // 총알이 최대 사정거리까지 날아갔을때의 위치를 충돌 위치로 사용
             hitPosition = fireTransform.position +
@@ -110,8 +103,7 @@ public class Gun : MonoBehaviour {
 
         // 남은 탄환의 수를 -1
         magAmmo--;
-        if (magAmmo <= 0)
-        {
+        if (magAmmo <= 0) {
             // 탄창에 남은 탄약이 없다면, 총의 현재 상태를 Empty으로 갱신
             state = State.Empty;
         }
@@ -143,9 +135,7 @@ public class Gun : MonoBehaviour {
 
     // 재장전 시도
     public bool Reload() {
-        if (state == State.Reloading ||
-            ammoRemain <= 0 || magAmmo >= magCapacity)
-        {
+        if (state == State.Reloading || ammoRemain <= 0 || magAmmo >= magCapacity) {
             // 이미 재장전 중이거나, 남은 총알이 없거나
             // 탄창에 총알이 이미 가득한 경우 재장전 할수 없다
             return false;
@@ -171,8 +161,7 @@ public class Gun : MonoBehaviour {
 
         // 탄창에 채워야할 탄약이 남은 탄약보다 많다면,
         // 채워야할 탄약 수를 남은 탄약 수에 맞춰 줄인다
-        if (ammoRemain < ammoToFill)
-        {
+        if (ammoRemain < ammoToFill) {
             ammoToFill = ammoRemain;
         }
 

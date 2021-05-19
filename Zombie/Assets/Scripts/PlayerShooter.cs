@@ -16,7 +16,7 @@ public class PlayerShooter : MonoBehaviour {
         playerInput = GetComponent<PlayerInput>();
         playerAnimator = GetComponent<Animator>();
     }
-    
+
     private void OnEnable() {
         // 슈터가 활성화될 때 총도 함께 활성화
         gun.gameObject.SetActive(true);
@@ -29,13 +29,16 @@ public class PlayerShooter : MonoBehaviour {
 
     private void Update() {
         // 입력을 감지하고 총 발사하거나 재장전
-        if (playerInput.fire) {
+        if (playerInput.fire)
+        {
             // 발사 입력 감지시 총 발사
             gun.Fire();
         }
-        else if (playerInput.reload) {
+        else if (playerInput.reload)
+        {
             // 재장전 입력 감지시 재장전
-            if (gun.Reload()) {
+            if (gun.Reload())
+            {
                 // 재장전 성공시에만 재장전 애니메이션 재생
                 playerAnimator.SetTrigger("Reload");
             }
@@ -47,7 +50,8 @@ public class PlayerShooter : MonoBehaviour {
 
     // 탄약 UI 갱신
     private void UpdateUI() {
-        if (gun != null && UIManager.instance != null) {
+        if (gun != null && UIManager.instance != null)
+        {
             // UI 매니저의 탄약 텍스트에 탄창의 탄약과 남은 전체 탄약을 표시
             UIManager.instance.UpdateAmmoText(gun.magAmmo, gun.ammoRemain);
         }
